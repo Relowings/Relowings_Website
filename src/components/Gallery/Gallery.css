@@ -1,0 +1,223 @@
+.gallery {
+  padding: var(--sp-9) 0;
+  background: var(--light);
+}
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.gallery__header .section-subtitle {
+  text-align: center;
+}
+
+/* ── Grid (Masonry-like) ── */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 160px;
+  gap: 16px;
+}
+
+.gallery__item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  position: relative;
+}
+
+.gallery__item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+}
+
+.gallery__item--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery__item--medium {
+  grid-column: span 2;
+}
+
+.gallery__item--small {
+  grid-column: span 1;
+}
+
+.gallery__item-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery__emoji {
+  font-size: 60px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  transition: transform 0.3s var(--ease-out);
+}
+
+.gallery__item--large .gallery__emoji {
+  font-size: 100px;
+}
+
+.gallery__item:hover .gallery__emoji {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14,22,40,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--white);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.gallery__item:hover .gallery__overlay {
+  opacity: 1;
+}
+
+.gallery__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.gallery__info strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.gallery__info span {
+  font-size: 12.5px;
+  opacity: 0.75;
+}
+
+/* ── Lightbox ── */
+.gallery__lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gallery__lightbox-content {
+  background: var(--dark-2);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  width: min(400px, 90vw);
+  animation: scaleIn 0.35s var(--ease-out);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.gallery__lightbox-visual {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery__lightbox-emoji {
+  font-size: 100px;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
+}
+
+.gallery__lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color: var(--white);
+  transition: var(--transition-fast);
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery__lightbox-close:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.gallery__lightbox-info {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gallery__lightbox-info strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.gallery__lightbox-info span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+  }
+
+  .gallery__item--large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery__emoji { font-size: 48px; }
+  .gallery__item--large .gallery__emoji { font-size: 80px; }
+}

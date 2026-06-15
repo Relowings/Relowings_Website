@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>http://localhost:5173/</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/services/domestic-relocation</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/services/international-relocation</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/services/pet-boarding</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/services/packers-movers</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/#about</loc>
+  </url>
+
+  <url>
+    <loc>http://localhost:5173/#blog</loc>
+  </url>
+
+</urlset>

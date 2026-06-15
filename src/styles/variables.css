@@ -1,0 +1,70 @@
+:root {
+  /* ── Core Brand ── */
+  --primary: #1A6FD4;
+  --primary-light: #3B8FE8;
+  --primary-dark: #0D52A8;
+  --secondary: #0FB8B2;
+  --secondary-light: #3DCECA;
+  --accent: #FF7B4B;
+  --accent-light: #FF9B72;
+
+  /* ── Neutrals ── */
+  --dark: #0E1628;
+  --dark-2: #1C2B45;
+  --dark-3: #2D3F5E;
+  --mid: #6B7FA3;
+  --light-3: #C8D4E8;
+  --light-2: #E4EBF5;
+  --light: #F4F7FD;
+  --white: #FFFFFF;
+
+  /* ── Gradients ── */
+  --grad-hero: linear-gradient(135deg, #0E1628 0%, #1C3460 60%, #1A5FA0 100%);
+  --grad-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --grad-accent: linear-gradient(135deg, var(--accent) 0%, #FF5722 100%);
+  --grad-card: linear-gradient(145deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+  --grad-footer: linear-gradient(180deg, #0E1628 0%, #070D1A 100%);
+
+  /* ── Glass ── */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-light: rgba(255, 255, 255, 0.85);
+  --glass-light-border: rgba(26, 111, 212, 0.15);
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(14, 22, 40, 0.08);
+  --shadow-md: 0 8px 32px rgba(14, 22, 40, 0.12);
+  --shadow-lg: 0 20px 60px rgba(14, 22, 40, 0.18);
+  --shadow-xl: 0 32px 80px rgba(14, 22, 40, 0.24);
+  --shadow-primary: 0 12px 40px rgba(26, 111, 212, 0.3);
+  --shadow-accent: 0 8px 32px rgba(255, 123, 75, 0.35);
+
+  /* ── Typography ── */
+  --font-display: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* ── Sizing ── */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s var(--ease-out);
+  --transition-base: 0.35s var(--ease-out);
+  --transition-slow: 0.6s var(--ease-out);
+
+  /* ── Spacing ── */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 48px;
+  --sp-6: 64px;
+  --sp-7: 50px;
+  --sp-8: 96px;
+  --sp-9: 70px;
+}

@@ -1,0 +1,307 @@
+@import '../styles/variables.css';
+
+/* ── Page wrapper ── */
+.blog-details {
+  background: var(--light);
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════
+   HERO — THE MAIN FIX IS HERE
+   overlay must be position:absolute
+══════════════════════════════════ */
+.blog-hero {
+  position: relative;          /* parent must be relative */
+  height: 88vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.blog-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    160deg,
+    rgba(6, 11, 28, 0.90) 0%,
+    rgba(10, 18, 40, 0.72) 45%,
+    rgba(14, 22, 40, 0.45) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 0 60px;
+}
+
+/* Wrapper to constrain width of everything inside the hero */
+.blog-hero-overlay > * {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Back button at the top of the hero */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+
+  padding: 11px 20px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+
+  /* Keep it inside the container width */
+  margin-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  gap: 12px;
+}
+
+/* Content sits at the bottom of the hero */
+.blog-hero-content {
+  color: white;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.blog-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 16px;
+  border-radius: 999px;
+
+  background: rgba(15, 184, 178, 0.15);
+  border: 1px solid rgba(15, 184, 178, 0.35);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #3DCECA;
+
+  margin-bottom: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.blog-hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 860px;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.blog-hero-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 0;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.blog-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding: 7px 14px;
+  border-radius: 999px;
+
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ══════════════════════════════════
+   CONTENT SECTION
+══════════════════════════════════ */
+.blog-content-wrapper {
+  padding: 64px 24px 96px;
+}
+
+.blog-content {
+  max-width: 860px;
+  margin: 0 auto;
+
+  background: white;
+  padding: 48px 52px;
+  border-radius: 28px;
+  border: 1px solid var(--light-2);
+  box-shadow: 0 8px 40px rgba(14, 22, 40, 0.07);
+}
+
+/* Lead paragraph — first paragraph gets special treatment */
+.blog-content p:first-child {
+  font-size: 19px;
+  line-height: 1.8;
+  color: var(--dark);
+  font-weight: 500;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--light-2);
+}
+
+.blog-content p {
+  font-size: 16.5px;
+  line-height: 1.9;
+  color: #374151;
+  margin-bottom: 26px;
+}
+
+.blog-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ══════════════════════════════════
+   NOT FOUND
+══════════════════════════════════ */
+.blog-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--light);
+}
+
+.blog-not-found h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--dark);
+}
+
+.blog-not-found p {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 360px;
+}
+
+.blog-not-found a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--grad-primary);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: var(--shadow-primary);
+  transition: all 0.25s ease;
+}
+
+.blog-not-found a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(26, 111, 212, 0.4);
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 960px) {
+  .blog-hero {
+    height: 75vh;
+  }
+
+  .blog-content {
+    padding: 36px 32px;
+  }
+
+  .back-btn {
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-hero {
+    height: auto;
+    min-height: 520px;
+  }
+
+  .blog-hero-overlay {
+    padding: 24px 0 40px;
+  }
+
+  .back-btn {
+    margin-left: 20px;
+  }
+
+  .blog-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .blog-hero-content p {
+    font-size: 15px;
+  }
+
+  .blog-content-wrapper {
+    padding: 40px 16px 64px;
+  }
+
+  .blog-content {
+    padding: 28px 20px 32px;
+    border-radius: 20px;
+  }
+
+  .blog-content p:first-child {
+    font-size: 17px;
+  }
+
+  .blog-content p {
+    font-size: 15.5px;
+    line-height: 1.85;
+  }
+
+  .blog-meta {
+    gap: 6px;
+  }
+}

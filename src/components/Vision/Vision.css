@@ -1,0 +1,144 @@
+/* ── Section ── */
+.vision {
+  padding: var(--sp-9) 0;
+  background: var(--light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background blobs ── */
+.vision__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vision__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.05;
+}
+
+.vision__blob--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--primary), transparent 70%);
+  top: -150px;
+  right: -100px;
+}
+
+.vision__blob--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--secondary), transparent 70%);
+  bottom: -100px;
+  left: -80px;
+}
+
+/* ── Header ── */
+.vision__header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.vision__sub {
+  text-align: center;
+}
+
+/* ── Grid ── */
+.vision__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Card ── */
+.vision__card {
+  background: var(--white);
+  border: 1px solid var(--light-2);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.vision__card--blue:hover {
+  border-color: rgba(26, 111, 212, 0.25);
+}
+
+.vision__card--teal:hover {
+  border-color: rgba(15, 184, 178, 0.25);
+}
+
+/* ── Number watermark ── */
+.vision__number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(14, 22, 40, 0.06);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  user-select: none;
+}
+
+/* ── Colour accent line ── */
+.vision__line {
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.vision__line--blue {
+  background: var(--grad-primary);
+}
+
+.vision__line--teal {
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+}
+
+/* ── Text ── */
+.vision__text {
+  font-size: 15.5px;
+  color: var(--dark-3);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .vision__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .vision__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision {
+    padding: var(--sp-7) 0;
+  }
+}

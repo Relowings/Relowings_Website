@@ -1,0 +1,144 @@
+.floating-btns {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ── Base button ── */
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.floating-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+
+/* ── WhatsApp ── */
+.floating-wa-wrap {
+  position: relative;
+}
+
+.floating-btn--wa {
+  background: #25D366;
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  position: relative;
+  overflow: visible;
+}
+
+.floating-btn--wa:hover {
+  background: #1fba59;
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+}
+
+/* Pulse ring */
+.floating-btn__pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: pulseRing 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Tooltip */
+.floating-wa-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+  animation: tooltipFadeIn 0.2s var(--ease-out);
+}
+
+.floating-wa-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--dark);
+  border-right-width: 0;
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(6px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* ── Call ── */
+.floating-btn--call {
+  background: var(--grad-primary);
+  color: var(--white);
+  box-shadow: var(--shadow-primary);
+}
+
+.floating-btn--call:hover {
+  box-shadow: 0 10px 36px rgba(26, 111, 212, 0.5);
+}
+
+/* ── Scroll top ── */
+.floating-btn--top {
+  background: var(--white);
+  color: var(--dark);
+  box-shadow: var(--shadow-md);
+  border: 1.5px solid var(--light-2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
+.floating-btn--top.floating-btn--visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.floating-btn--top:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: var(--shadow-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .floating-btns {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .floating-btn {
+    width: 48px;
+    height: 48px;
+  }
+}

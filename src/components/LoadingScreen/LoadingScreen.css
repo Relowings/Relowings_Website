@@ -1,0 +1,200 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--grad-hero);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.loader--fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loader__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+.loader__blob--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--primary), transparent 70%);
+  top: -150px;
+  right: -100px;
+  animation: blobFloat1 6s ease-in-out infinite;
+}
+
+.loader__blob--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--secondary), transparent 70%);
+  bottom: -100px;
+  left: 0;
+  animation: blobFloat2 8s ease-in-out infinite;
+}
+
+.loader__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.loader__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* Logo */
+.loader__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.loader__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--grad-primary);
+  border-radius: 16px;
+  color: var(--white);
+  box-shadow: var(--shadow-primary);
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { box-shadow: var(--shadow-primary); }
+  50% { box-shadow: 0 0 40px rgba(26,111,212,0.6); }
+}
+
+.loader__logo-text {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.loader__logo-text span {
+  color: var(--secondary-light);
+}
+
+/* Pet emoji */
+.loader__pet {
+  font-size: 64px;
+  animation: petBounce 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 24px rgba(26,111,212,0.4));
+}
+
+.loader__tagline {
+  font-size: 16px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Progress */
+.loader__progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 260px;
+  margin-top: 8px;
+}
+
+.loader__progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader__progress-fill {
+  height: 100%;
+  background: var(--grad-primary);
+  border-radius: 2px;
+  transition: width 0.4s var(--ease-out);
+  position: relative;
+}
+
+.loader__progress-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+.loader__progress-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ── Pet photo strip ── */
+.loader__pets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: -8px;
+}
+
+.loader__pet-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.2);
+  margin: 0 -8px;
+  animation: petBounce 2s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.loader__pet-img:nth-child(1) { animation-delay: 0s;    z-index: 1; }
+.loader__pet-img:nth-child(2) { animation-delay: 0.3s;  z-index: 2; }
+.loader__pet-img:nth-child(3) { animation-delay: 0.6s;  z-index: 1; }
+
+.loader__pet-img--center {
+  width: 80px;
+  height: 80px;
+  border-color: var(--secondary-light);
+  box-shadow: 0 0 24px rgba(15,184,178,0.4);
+}
+
+.loader__pet-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
